@@ -47,8 +47,7 @@ for conversation in conversation_list:
         question.append(question_text)
 
         # Get Answer
-        next_index = min(i+1,number_of_lines-1)
-        answer_text = id2line[conversation[next_index]]
+        answer_text = id2line[conversation[i+1]]
         answer.append(answer_text)
 
 print(question[:3])
