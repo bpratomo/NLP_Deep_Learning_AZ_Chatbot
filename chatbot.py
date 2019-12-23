@@ -36,22 +36,22 @@ print(conversation_list[:3])
 
 
 #separate questions and answers
-question = []
-answer = []
+questions = []
+answers = []
 
 for conversation in conversation_list:
     number_of_lines = len(conversation)
     for i in range(0,number_of_lines-1):
         # Get question
         question_text = id2line[conversation[i]]
-        question.append(question_text)
+        questions.append(question_text)
 
         # Get Answer
         answer_text = id2line[conversation[i+1]]
-        answer.append(answer_text)
+        answers.append(answer_text)
 
-print(question[:3])
-print(answer[:3])
+print(questions[:3])
+print(answers[:3])
 
 # doing the first cleaning pass of the text
 def clean_text(text):
@@ -62,10 +62,10 @@ def clean_text(text):
     text = re.sub(r"that's","that is", text)
     text = re.sub(r"what's","what is", text)
     text = re.sub(r"where's","where is", text)
-    text = re.sub(r"\'ll","will", text)
-    text = re.sub(r"\'ve","have", text)
-    text = re.sub(r"\'re","are", text)
-    text = re.sub(r"\'d","would", text)
+    text = re.sub(r"\'ll"," will", text)
+    text = re.sub(r"\'ve"," have", text)
+    text = re.sub(r"\'re"," are", text)
+    text = re.sub(r"\'d"," would", text)
     text = re.sub(r"won't","will not", text)
     text = re.sub(r"can't","cannot", text)
     text = re.sub(r"[-()\"#/@;:<>{}+=~|.?,]","", text)
@@ -76,3 +76,19 @@ def clean_text(text):
 
     
 
+# cleaning the questions
+clean_questions = []
+for q in questions:
+    clean_q = clean_text(q)
+    clean_questions.append(clean_q)
+
+print(clean_questions[:3])
+
+
+# cleaning the answers
+clean_answers = []
+for a in answers:
+    clean_a = clean_text(a)
+    clean_answers.append(clean_a)
+
+print(clean_answers[:3])
