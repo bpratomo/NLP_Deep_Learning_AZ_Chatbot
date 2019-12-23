@@ -29,10 +29,29 @@ print(id2line['L537091'])
 # Create list of conversation
 conversation_list = []
 for conversation in conversations:
-    _conversation = conversation.split(' +++$+++ ')[-1][1:-1].replace("'","").split(',')
+    _conversation = conversation.split(' +++$+++ ')[-1][1:-1].replace("'","").replace(" ","").split(',')
     conversation_list.append(_conversation)
 
 print(conversation_list[:3])
 
 
 #separate questions and answers
+question = []
+answer = []
+
+for conversation in conversation_list:
+    number_of_lines = len(conversation)
+    for i in range(0,number_of_lines-1):
+        # Get question
+        question_text = id2line[conversation[i]]
+        question.append(question_text)
+
+        # Get Answer
+        next_index = min(i+1,number_of_lines-1)
+        answer_text = id2line[conversation[next_index]]
+        answer.append(answer_text)
+
+print(question[:3])
+print(answer[:3])
+
+
