@@ -11,9 +11,9 @@ import time
 
 
 # Import the dataset
-lines = open('cornell movie-dialogs corpus/movie_lines.txt',encoding='utf-8',errors='ignore',mode='r').read().split('\n')
+lines = open('corpus/movie_lines.txt',encoding='utf-8',errors='ignore',mode='r').read().split('\n')
 print(type(lines))
-conversations = open('cornell movie-dialogs corpus/movie_conversations.txt',encoding='utf-8',errors='ignore',mode='r').read().split('\n')
+conversations = open('corpus/movie_conversations.txt',encoding='utf-8',errors='ignore',mode='r').read().split('\n')
 print(type(conversations))
 
 
