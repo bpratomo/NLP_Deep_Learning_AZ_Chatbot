@@ -92,3 +92,21 @@ for a in answers:
     clean_answers.append(clean_a)
 
 print(clean_answers[:3])
+
+
+# Creating a dictionary that maps each word to its number of occurences
+word2count = {}
+
+for question in clean_questions:
+    for word in question.split():
+        if word not in word2count:
+            word2count[word] = 1
+        else:
+            word2count[word] +=1
+
+for answer in clean_answers:
+    for word in answer.split():
+        if word not in word2count:
+            word2count[word] = 1
+        else:
+            word2count[word] +=1
